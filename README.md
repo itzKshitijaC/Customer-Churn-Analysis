@@ -240,3 +240,28 @@ This project involves conducting an End-to-End Customer Churn Analysis utilizing
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/35d3fa45-7abc-4086-8bd1-d86010478c6d">
 </div>
 
+14. Change the data type of "Balance" Column
+
+        ALTER TABLE churn
+        MODIFY COLUMN Balance int;
+
+15. Add a new column "Balance_Range"
+
+        ALTER TABLE churn ADD COLUMN Balance_Range VARCHAR(20);
+        UPDATE churn
+        SET Balance_Range = 
+        CASE
+        WHEN Balance = 0 THEN '0'
+        WHEN Balance BETWEEN 1000 AND 10000 THEN '1k-10k'
+        WHEN Balance BETWEEN 10000 AND 100000 THEN '10k-100k'
+        WHEN Balance BETWEEN 100000 AND 200000 THEN '100k-200k'
+        WHEN Balance > 200000 THEN '>200k'
+        END;
+
+<div align='center'">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/cf00a18b-9ba4-4525-92a6-20022e280cb3">
+</div>
+
+16. 
+
+
