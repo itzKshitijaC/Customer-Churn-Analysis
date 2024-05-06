@@ -56,4 +56,200 @@ This project involves conducting an End-to-End Customer Churn Analysis utilizing
 
 # Data Cleaning and Exploratory Analysis using MySQL 👩🏻‍💻
 
+1. Create a Database
+
+       CREATE DATABASE customer_churn;
+
+2. Select a Database
+
+       USE customer_churn;
+
+3. Select the Records from the table
+-- After importing dataset into the database, select the records from the table
+
+       SELECT * FROM churn;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/bebb428d-23cd-40dd-99ea-3b86139d1949">
+</div>
+
+4. Count of Total Number of Records
    
+       SELECT COUNT(*) FROM churn;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/b42a9cdc-7b83-4ca5-bc0b-7a1bb0101853">
+</div>
+
+5. Description of Table
+   
+       DESCRIBE churn;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/0d4e5262-1b5a-422a-9935-209bf704f075">
+</div>
+
+6. Drop Columns
+-- Drop Unnecessary Columns as they are of no use 
+
+        ALTER TABLE churn DROP COLUMN RowNumber, DROP COLUMN Surname, DROP COLUMN EstimatedSalary;
+
+7. Rename Columns
+
+       -- HasCrCard
+       ALTER TABLE churn
+       RENAME COLUMN HasCrCard to AvailabilityOfcard;
+
+       -- IsActiveMember
+       ALTER TABLE churn
+       RENAME COLUMN IsActiveMember to Activity_Status;
+
+       -- Exited
+       ALTER TABLE churn
+       RENAME COLUMN Exited to Churn_Status;
+
+       -- Complain
+       ALTER TABLE churn
+       RENAME COLUMN Complain to Complain_Status;
+
+       -- Satisfaction Score
+       ALTER TABLE churn
+       RENAME COLUMN `Satisfaction Score` to Satisfaction_Score;
+
+       -- Card Type
+       ALTER TABLE churn
+       RENAME COLUMN `Card Type` to Card_Type;
+
+       -- Point Earned
+       ALTER TABLE churn
+       RENAME COLUMN `Point Earned` to Point_Earned;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/95c561f2-03ae-4a7c-a525-7825232ce921">
+</div>
+
+8. Drop Column "Point_Earned"
+
+       ALTER TABLE churn DROP COLUMN Point_Earned;
+
+9. Changing the data type of columns "AvailabilityOfCard", "Activity_Status", "Churn_Status" and "Complain_Status" from int to text
+
+         -- AvailabilityOfCard
+         ALTER TABLE churn
+         MODIFY COLUMN AvailabilityOfCard text;
+
+         -- Activity_Status
+         ALTER TABLE churn
+         MODIFY COLUMN Activity_Status text;
+
+         -- Churn_Status
+         ALTER TABLE churn
+         MODIFY COLUMN Churn_Status text;
+
+         -- Complain_Status
+         ALTER TABLE churn
+         MODIFY COLUMN Complain_Status text;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/f57f31c9-a8ce-401b-ba32-bcff448651ca">
+</div>
+
+10. Replacing values in columns. In the "AvailabilityOfCard" column, 0 is replaced with "Not_Available" and 1 is replaced with "Available". In the "Activity_Status" column, 1 is replaced with "Active" and 0 is replaced with "Dormant". In "Churn_Status" column, 1 is replaced with "Churned" and 0 is replaced with "Not_Churned".
+
+         -- Replacing values in a "AvailabilityOfCard" column. 0 is replaced with "Not_Available" and 1 is replaced with "Available"
+
+          SET sql_safe_updates = 0;
+          UPDATE churn
+          SET AvailabilityOfCard = replace(AvailabilityOfCard, "0", "Not_Available");
+
+          UPDATE churn
+          SET AvailabilityOfCard = replace(AvailabilityOfCard, "1", "Available");
+
+
+          -- Replacing values in a "Activity_Status" column. 1 is replaced with "Active" and 0 is replaced with "Dormant"
+          SET sql_safe_updates = 0;
+          UPDATE churn
+          SET Activity_Status = replace(Activity_Status, "0", "Dormant");
+
+          UPDATE churn
+          SET Activity_Status = replace(Activity_Status, "1", "Active");
+
+
+          -- Replacing values in a "Churn_Status" column. 1 is replaced with "Churned" and 0 is replaced with "Not Churned"
+          SET sql_safe_updates = 0;
+          UPDATE churn
+          SET Churn_Status = replace(Churn_Status, "0", "Not_Churned");
+
+          UPDATE churn
+          SET Churn_Status = replace(Churn_Status, "1", "Churned");
+
+
+          -- Replacing values in a "Churn_Status" column. 1 is replaced with "Churned" and 0 is replaced with "Not Churned"
+          SET sql_safe_updates = 0;
+          UPDATE churn
+          SET Complain_Status = replace(Complain_Status, "0", "No_Complain_Raised");
+
+          UPDATE churn
+          SET Complain_Status = replace(Complain_Status, "1", "Complain_Raised");
+
+11. Getting records where AvailabilityOfCard = "Available"
+
+         select * from churn where AvailabilityOfCard = "Available";
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/0cadc4a7-e8fa-4b05-b888-a531a2406dfc">
+</div>
+
+
+12. Getting records where AvailabilityOfCard = "Not_Available"
+
+         select * from churn where AvailabilityOfCard = "Not_Available";
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/a1ac5cce-6341-40db-9718-ccfe532d3fb4">
+</div>
+
+
+13. Getting records where Activity_Status = "Active"
+
+         SELECT * FROM churn WHERE Activity_Status = "Active";
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/f8cd6dae-72cf-4b15-8f68-f62058a0f9e9">
+</div>
+
+14. Getting records where Activity_Status = "Dormant"
+
+         SELECT * FROM churn WHERE Activity_Status = "Dormant";
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/e0a9f1cb-8a20-4565-8348-a0146571ab72">
+</div>
+
+15. Getting records where Churn_Status = "Not_Churned"
+
+         SELECT * FROM churn WHERE Churn_Status = "Not_Churned";
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/9954ca23-d457-4b27-a9ff-73b0e24fc646">
+</div>
+
+
+16.  Getting records where Churn_Status = "Churned"
+
+         SELECT * FROM churn WHERE Churn_Status = "Churned";
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/25451d5f-fee5-4283-9a85-17f4766647c6">
+</div>
+
+17. 
+
+
+
+
+
+
+
+
+
