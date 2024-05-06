@@ -1,0 +1,174 @@
+-- Create a Database
+CREATE DATABASE customer_churn;
+
+--  Select the Database
+USE customer_churn;
+
+-- After importing dataset into the database, select the records from the table
+SELECT * FROM churn;
+
+-- Count of total number of records
+SELECT COUNT(*) FROM churn;
+
+--  Description of Table
+DESCRIBE churn;
+
+-- Drop Unnecessary Columns as they are of no use 
+ALTER TABLE churn DROP COLUMN RowNumber, DROP COLUMN Surname, DROP COLUMN EstimatedSalary;
+
+-- Renaming Columns
+-- HasCrCard
+       ALTER TABLE churn
+       RENAME COLUMN HasCrCard to AvailabilityOfcard;
+
+       -- IsActiveMember
+       ALTER TABLE churn
+       RENAME COLUMN IsActiveMember to Activity_Status;
+
+       -- Exited
+       ALTER TABLE churn
+       RENAME COLUMN Exited to Churn_Status;
+
+       -- Complain
+       ALTER TABLE churn
+       RENAME COLUMN Complain to Complain_Status;
+
+       -- Satisfaction Score
+       ALTER TABLE churn
+       RENAME COLUMN `Satisfaction Score` to Satisfaction_Score;
+
+       -- Card Type
+       ALTER TABLE churn
+       RENAME COLUMN `Card Type` to Card_Type;
+
+       -- Point Earned
+       ALTER TABLE churn
+       RENAME COLUMN `Point Earned` to Point_Earned;
+       
+-- Drop "Point_Earned" Column
+ ALTER TABLE churn DROP COLUMN Point_Earned;
+ 
+-- Changing the data type of columns "AvailabilityOfCard", "Activity_Status", "Churn_Status" and "Complain_Status" from int to text
+-- AvailabilityOfCard
+ALTER TABLE churn
+MODIFY COLUMN AvailabilityOfCard text;
+
+-- Activity_Status
+ALTER TABLE churn
+MODIFY COLUMN Activity_Status text;
+
+-- Churn_Status
+ALTER TABLE churn
+MODIFY COLUMN Churn_Status text;
+
+-- Complain_Status
+ALTER TABLE churn
+MODIFY COLUMN Complain_Status text;
+
+-- Replacing values in columns. In the "AvailabilityOfCard" column, 0 is replaced with "Not_Available" and 1 is replaced with "Available". In the "Activity_Status" column, 1 is replaced with "Active" and 0 is replaced with "Dormant". In "Churn_Status" column, 1 is replaced with "Churned" and 0 is replaced with "Not_Churned".
+
+-- Replacing values in a "AvailabilityOfCard" column. 0 is replaced with "Not_Available" and 1 is replaced with "Available"
+SET sql_safe_updates = 0;
+UPDATE churn
+SET AvailabilityOfCard = replace(AvailabilityOfCard, "0", "Not_Available");
+
+UPDATE churn
+SET AvailabilityOfCard = replace(AvailabilityOfCard, "1", "Available");
+
+select * from churn where AvailabilityOfCard = "Available";
+select * from churn where AvailabilityOfCard = "Not_Available";
+
+-- Replacing values in a "Activity_Status" column. 1 is replaced with "Active" and 0 is replaced with "Dormant"
+SET sql_safe_updates = 0;
+UPDATE churn
+SET Activity_Status = replace(Activity_Status, "0", "Dormant");
+
+UPDATE churn
+SET Activity_Status = replace(Activity_Status, "1", "Active");
+
+SELECT * FROM churn WHERE Activity_Status = "Active";
+SELECT COUNT(*) FROM churn WHERE Activity_Status = "Active";
+SELECT * FROM churn WHERE Activity_Status = "Dormant";
+SELECT COUNT(*) FROM churn WHERE Activity_Status = "Dormant";
+
+-- Replacing values in a "Churn_Status" column. 1 is replaced with "Churned" and 0 is replaced with "Not Churned"
+SET sql_safe_updates = 0;
+UPDATE churn
+SET Churn_Status = replace(Churn_Status, "0", "Not_Churned");
+
+UPDATE churn
+SET Churn_Status = replace(Churn_Status, "1", "Churned");
+
+SELECT * FROM churn WHERE Churn_Status = "Not_Churned";
+SELECT COUNT(*) FROM churn WHERE Churn_Status = "Not_Churned";
+SELECT * FROM churn WHERE Churn_Status = "Churned";
+SELECT COUNT(*) FROM churn WHERE Churn_Status = "Churned";
+
+-- Replacing values in a "Churn_Status" column. 1 is replaced with "Churned" and 0 is replaced with "Not Churned"
+SET sql_safe_updates = 0;
+UPDATE churn
+SET Complain_Status = replace(Complain_Status, "0", "No_Complain_Raised");
+
+UPDATE churn
+SET Complain_Status = replace(Complain_Status, "1", "Complain_Raised");
+
+SELECT * FROM churn WHERE Complain_Status = "No_Complain_Raised";
+SELECT COUNT(*) FROM churn WHERE Complain_Status = "No_Complain_Raised";
+SELECT * FROM churn WHERE Complain_Status = "Complain_Raised";
+SELECT COUNT(*) FROM churn WHERE Complain_Status = "Complain_Raised";
+
+-- Create a new column named "Age_Range" to categorize age values into groups.
+ALTER TABLE churn ADD COLUMN Age_bins VARCHAR(20);
+        UPDATE churn
+        SET Age_bins = 
+        CASE 
+        WHEN Age < 20 THEN '[Under 20]'
+        WHEN Age BETWEEN 20 AND 39 THEN '[20-39]'
+        WHEN Age BETWEEN 40 AND 59 THEN '[40-59]'
+        WHEN Age BETWEEN 60 AND 79 THEN '[60-79]'
+        WHEN Age >= 80 THEN "[80 and above]"
+        END ;
+
+SELECT * FROM churn;
+
+-- Get Distinct CreditScores
+SELECT distinct CreditScore from churn order by CreditScore desc;
+
+-- Add a new column "Credit_type" to label CreditScores
+        
+        ALTER TABLE churn ADD COLUMN Credit_Type VARCHAR(20);
+        UPDATE churn
+        SET Credit_Type = 
+        CASE
+        WHEN CreditScore < 450 THEN 'Poor'
+        WHEN CreditScore BETWEEN 450 AND 549 THEN 'Fair'
+        WHEN CreditScore BETWEEN 550 AND 649 THEN 'Good'
+        WHEN CreditScore BETWEEN 650 AND 749 THEN 'Very Good'
+        WHEN CreditScore BETWEEN 750 AND 851 THEN 'Excellent'
+        END;
+
+ -- Change the data type of "Balance" Column
+
+        ALTER TABLE churn
+        MODIFY COLUMN Balance int;
+        
+-- Add a new column "Balance_Range"
+ALTER TABLE churn ADD COLUMN Balance_Range VARCHAR(20);
+        UPDATE churn
+        SET Balance_Range = 
+        CASE
+        WHEN Balance = 0 THEN '0'
+        WHEN Balance BETWEEN 1000 AND 10000 THEN '1k-10k'
+        WHEN Balance BETWEEN 10000 AND 100000 THEN '10k-100k'
+        WHEN Balance BETWEEN 100000 AND 200000 THEN '100k-200k'
+        WHEN Balance > 200000 THEN '>200k'
+        END;
+        
+SELECT * FROM churn;
+
+-- Getting Distinct Geography
+SELECT DISTINCT Geography from churn;
+
+-- Calculating Total Customers
+SELECT COUNT(CustomerId)  AS Total_Customers FROM churn;
+
