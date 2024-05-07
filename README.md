@@ -320,4 +320,21 @@ This project involves conducting an End-to-End Customer Churn Analysis utilizing
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/20202291-92f5-4d73-b92b-107e0be38ea8">
 </div>
 
-25. 
+25. Getting Distinct Geography
+
+              SELECT DISTINCT Geography from churn;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/eed144d1-0792-4cde-b75f-ca88acc91f24">
+</div>
+
+26. Calculating Total Customers
+
+              SELECT COUNT(CustomerId)  AS Total_Customers FROM churn;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/47d60c55-8aac-4ed7-962a-fa6279775c49">
+</div>
+
+27. 
+
