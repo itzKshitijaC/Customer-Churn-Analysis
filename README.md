@@ -243,13 +243,81 @@ This project involves conducting an End-to-End Customer Churn Analysis utilizing
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/25451d5f-fee5-4283-9a85-17f4766647c6">
 </div>
 
-17. 
+17. Getting records where Complain_Status = "No_Complain_Raised"
 
+              SELECT * FROM churn WHERE Complain_Status = "No_Complain_Raised";
 
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/51b20af1-8405-42b4-8028-35d6ba0f1c59">
+</div>
 
+18. Getting records where Complain_Status = "Complain_Raised"
 
+              SELECT * FROM churn WHERE Complain_Status = "Complain_Raised";
 
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/1e9f6873-a0bc-416a-b976-dd91e4e21e93">
+</div>
 
+19. Create a new column named "Age_grps" to categorize age values into groups.
 
+        SET sql_safe_updates = 0;
+        ALTER TABLE churn ADD COLUMN Age_grps VARCHAR(20);
+        UPDATE churn
+        SET Age_grps = 
+        CASE 
+        WHEN Age < 20 THEN '[Under 20]'
+        WHEN Age BETWEEN 20 AND 39 THEN '[20-39]'
+        WHEN Age BETWEEN 40 AND 59 THEN '[40-59]'
+        WHEN Age BETWEEN 60 AND 79 THEN '[60-79]'
+        WHEN Age >= 80 THEN "[80 and above]"
+        END ;
 
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/bcce6ecf-2a9c-415b-a028-bbc3f99d5657">
+</div>
 
+20. Get Distinct CreditScores
+
+              SELECT distinct CreditScore from churn order by CreditScore desc;
+
+21.  Add a new column "Credit_type" to label CreditScores
+
+              ALTER TABLE churn ADD COLUMN Credit_Type VARCHAR(20);
+              UPDATE churn
+              SET Credit_Type = 
+              CASE
+              WHEN CreditScore < 450 THEN 'Poor'
+              WHEN CreditScore BETWEEN 450 AND 549 THEN 'Fair'
+              WHEN CreditScore BETWEEN 550 AND 649 THEN 'Good'
+              WHEN CreditScore BETWEEN 650 AND 749 THEN 'Very Good'
+              WHEN CreditScore BETWEEN 750 AND 851 THEN 'Excellent'
+              END;
+     
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/8908e9ce-ad75-43e2-914a-ec205965168c">
+</div>
+
+22. Change the data type of "Balance" Column
+
+              ALTER TABLE churn
+              MODIFY COLUMN Balance int;
+    
+24. Add a new column "Balance_Range"
+    
+              ALTER TABLE churn ADD COLUMN Balance_Range VARCHAR(20);
+              UPDATE churn
+              SET Balance_Range = 
+              CASE
+              WHEN Balance = 0 THEN '0'
+              WHEN Balance BETWEEN 1000 AND 10000 THEN '1k-10k'
+              WHEN Balance BETWEEN 10000 AND 100000 THEN '10k-100k'
+              WHEN Balance BETWEEN 100000 AND 200000 THEN '100k-200k'
+              WHEN Balance > 200000 THEN '>200k'
+              END;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/20202291-92f5-4d73-b92b-107e0be38ea8">
+</div>
+
+25. 
