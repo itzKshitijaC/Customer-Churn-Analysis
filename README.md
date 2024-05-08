@@ -478,7 +478,11 @@ To identify the factors contributing to churn.
 
 46. Which gender raised more complaints, male or female, and which gender exhibited a higher churn rate?
 
-              SELECT Gender, Count(Gender) AS GenderComplainChurn FROM churn WHERE Complain_Status = 'Complain_Raised' AND Churn_Status = 'Churned' Group By Gender Order by GenderComplainChurn DESC;
+              SELECT Gender, Count(Gender) AS GenderComplainChurn
+              FROM churn
+              WHERE Complain_Status = 'Complain_Raised' AND Churn_Status = 'Churned'
+              Group By Gender
+              Order by GenderComplainChurn DESC;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/118c38d4-d69e-4de2-9c81-49536756a80b">
@@ -486,7 +490,12 @@ To identify the factors contributing to churn.
 
 47. Geography wise higher churn Status of Gender
 
-              SELECT Geography, Gender, Count(Geography) AS GeographyGenderChurn FROM churn WHERE Churn_Status = 'Churned' Group by Geography Order By GeographyGenderChurn DESC;
+              SELECT Geography,Gender,
+              Count(Geography) AS GeographyGenderChurn
+              FROM churn
+              WHERE Churn_Status = 'Churned'
+              Group by Geography
+              Order By GeographyGenderChurn DESC;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/cc21dbaf-e58f-42d3-bca7-fc73633338b0">
@@ -494,7 +503,11 @@ To identify the factors contributing to churn.
 
 48. Which geographical region has a larger customer base?
 
-              SELECT Geography, COUNT(CustomerId) AS TotalCustomers from churn group by Geography order by TotalCustomers;
+              SELECT Geography,
+              COUNT(CustomerId) AS TotalCustomers
+              from churn
+              group by Geography
+              order by TotalCustomers;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/9cc344fc-4265-47cb-a4d4-83b76c62d61a">
