@@ -85,11 +85,12 @@ To identify the factors contributing to churn.
 </div>
 
 6. Drop Columns
+   
 -- Drop Unnecessary Columns as they are of no use 
 
         ALTER TABLE churn DROP COLUMN RowNumber, DROP COLUMN Surname, DROP COLUMN EstimatedSalary;
 
-7. Rename Columns
+8. Rename Columns
 
        -- HasCrCard
        ALTER TABLE churn
