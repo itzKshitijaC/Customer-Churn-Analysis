@@ -489,7 +489,7 @@ This project involves conducting an End-to-End Customer Churn Analysis utilizing
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/118c38d4-d69e-4de2-9c81-49536756a80b">
 </div>
 
-47. Geography wise churn Status of Gender
+47. Geography wise higher churn Status of Gender
 
               SELECT Geography, Gender, Count(Geography) AS GeographyGenderChurn FROM churn WHERE Churn_Status = 'Churned' Group by Geography Order By GeographyGenderChurn DESC;
 
@@ -505,4 +505,28 @@ This project involves conducting an End-to-End Customer Churn Analysis utilizing
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/9cc344fc-4265-47cb-a4d4-83b76c62d61a">
 </div>
 
-49. 
+49. How does a Gender distribution of Churned Customers vary across Geographical ragions?
+
+              SELECT Geography, Gender, Count(*) as ChurnedCount
+              FROM churn
+              WHERE Churn_Status = 'Churned'
+              GROUP BY Geography, Gender
+              ORDER BY Geography;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/12e1d60f-b480-4c55-b419-4d2fd0a92ab9">
+</div>
+
+50. What is the Age Distribution of churned Customers in different Geographical regions?
+
+              SELECT Geography, Age_grps, Gender, COUNT(*) as count
+              FROM churn
+              WHERE Churn_Status = 'Churned'
+              GROUP BY Geography,Age_grps, Gender
+              ORDER BY Geography,Age_grps, Gender
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/3bc74a72-81d7-4680-bdff-c628ee596a64">
+</div>
+
+
