@@ -44,10 +44,13 @@ ALTER TABLE churn DROP COLUMN RowNumber, DROP COLUMN Surname, DROP COLUMN Estima
        -- Point Earned
        ALTER TABLE churn
        RENAME COLUMN `Point Earned` to Point_Earned;
+
+DESCRIBE churn;
+
        
 -- Drop "Point_Earned" Column
- ALTER TABLE churn DROP COLUMN Point_Earned;
- 
+ALTER TABLE churn DROP COLUMN Point_Earned;
+
 -- Changing the data type of columns "AvailabilityOfCard", "Activity_Status", "Churn_Status" and "Complain_Status" from int to text
 -- AvailabilityOfCard
 ALTER TABLE churn
@@ -65,8 +68,9 @@ MODIFY COLUMN Churn_Status text;
 ALTER TABLE churn
 MODIFY COLUMN Complain_Status text;
 
--- Replacing values in columns. In the "AvailabilityOfCard" column, 0 is replaced with "Not_Available" and 1 is replaced with "Available". In the "Activity_Status" column, 1 is replaced with "Active" and 0 is replaced with "Dormant". In "Churn_Status" column, 1 is replaced with "Churned" and 0 is replaced with "Not_Churned".
+DESCRIBE churn;
 
+-- Replacing values in columns. In the "AvailabilityOfCard" column, 0 is replaced with "Not_Available" and 1 is replaced with "Available". In the "Activity_Status" column, 1 is replaced with "Active" and 0 is replaced with "Dormant". In "Churn_Status" column, 1 is replaced with "Churned" and 0 is replaced with "Not_Churned".
 -- Replacing values in a "AvailabilityOfCard" column. 0 is replaced with "Not_Available" and 1 is replaced with "Available"
 SET sql_safe_updates = 0;
 UPDATE churn
@@ -74,9 +78,6 @@ SET AvailabilityOfCard = replace(AvailabilityOfCard, "0", "Not_Available");
 
 UPDATE churn
 SET AvailabilityOfCard = replace(AvailabilityOfCard, "1", "Available");
-
-select * from churn where AvailabilityOfCard = "Available";
-select * from churn where AvailabilityOfCard = "Not_Available";
 
 -- Replacing values in a "Activity_Status" column. 1 is replaced with "Active" and 0 is replaced with "Dormant"
 SET sql_safe_updates = 0;
@@ -86,11 +87,6 @@ SET Activity_Status = replace(Activity_Status, "0", "Dormant");
 UPDATE churn
 SET Activity_Status = replace(Activity_Status, "1", "Active");
 
-SELECT * FROM churn WHERE Activity_Status = "Active";
-SELECT COUNT(*) FROM churn WHERE Activity_Status = "Active";
-SELECT * FROM churn WHERE Activity_Status = "Dormant";
-SELECT COUNT(*) FROM churn WHERE Activity_Status = "Dormant";
-
 -- Replacing values in a "Churn_Status" column. 1 is replaced with "Churned" and 0 is replaced with "Not Churned"
 SET sql_safe_updates = 0;
 UPDATE churn
@@ -98,11 +94,6 @@ SET Churn_Status = replace(Churn_Status, "0", "Not_Churned");
 
 UPDATE churn
 SET Churn_Status = replace(Churn_Status, "1", "Churned");
-
-SELECT * FROM churn WHERE Churn_Status = "Not_Churned";
-SELECT COUNT(*) FROM churn WHERE Churn_Status = "Not_Churned";
-SELECT * FROM churn WHERE Churn_Status = "Churned";
-SELECT COUNT(*) FROM churn WHERE Churn_Status = "Churned";
 
 -- Replacing values in a "Churn_Status" column. 1 is replaced with "Churned" and 0 is replaced with "Not Churned"
 SET sql_safe_updates = 0;
@@ -112,15 +103,59 @@ SET Complain_Status = replace(Complain_Status, "0", "No_Complain_Raised");
 UPDATE churn
 SET Complain_Status = replace(Complain_Status, "1", "Complain_Raised");
 
+select * from churn where AvailabilityOfCard = "Available";
+
+select * from churn where AvailabilityOfCard = "Not_Available";
+
+SELECT * FROM churn WHERE Activity_Status = "Active";
+
+SELECT * FROM churn WHERE Activity_Status = "Dormant";
+
+SELECT * FROM churn WHERE Churn_Status = "Not_Churned";
+
+SELECT * FROM churn WHERE Churn_Status = "Churned";
+
 SELECT * FROM churn WHERE Complain_Status = "No_Complain_Raised";
-SELECT COUNT(*) FROM churn WHERE Complain_Status = "No_Complain_Raised";
+
 SELECT * FROM churn WHERE Complain_Status = "Complain_Raised";
-SELECT COUNT(*) FROM churn WHERE Complain_Status = "Complain_Raised";
 
 -- Create a new column named "Age_Range" to categorize age values into groups.
+SET sql_safe_updates = 0;
 ALTER TABLE churn ADD COLUMN Age_bins VARCHAR(20);
         UPDATE churn
         SET Age_bins = 
+        CASE 
+        WHEN Age < 20 THEN '[Under 20]'
+        WHEN Age BETWEEN 20 AND 39 THEN '[20-39]'
+        WHEN Age BETWEEN 40 AND 59 THEN '[40-59]'
+        WHEN Age BETWEEN 60 AND 79 THEN '[60-79]'
+        WHEN Age >= 80 THEN "[80 and above]"
+        END ;
+
+SELECT * FROM churn;
+
+alter table churn drop column Age_bins;
+
+-- Create a new column named "Age_Range" to categorize age values into groups.
+SET sql_safe_updates = 0;
+ALTER TABLE churn ADD COLUMN Age_Range VARCHAR(20);
+        UPDATE churn
+        SET Age_Range = 
+        CASE 
+        WHEN Age < 20 THEN '[Under 20]'
+        WHEN Age BETWEEN 20 AND 39 THEN '[20-39]'
+        WHEN Age BETWEEN 40 AND 59 THEN '[40-59]'
+        WHEN Age BETWEEN 60 AND 79 THEN '[60-79]'
+        WHEN Age >= 80 THEN "[80 and above]"
+        END ;
+
+alter table churn drop column Age_Range;
+
+-- Create a new column named "Age_grps" to categorize age values into groups.
+SET sql_safe_updates = 0;
+ALTER TABLE churn ADD COLUMN Age_grps VARCHAR(20);
+        UPDATE churn
+        SET Age_grps = 
         CASE 
         WHEN Age < 20 THEN '[Under 20]'
         WHEN Age BETWEEN 20 AND 39 THEN '[20-39]'
@@ -135,7 +170,6 @@ SELECT * FROM churn;
 SELECT distinct CreditScore from churn order by CreditScore desc;
 
 -- Add a new column "Credit_type" to label CreditScores
-        
         ALTER TABLE churn ADD COLUMN Credit_Type VARCHAR(20);
         UPDATE churn
         SET Credit_Type = 
@@ -146,8 +180,8 @@ SELECT distinct CreditScore from churn order by CreditScore desc;
         WHEN CreditScore BETWEEN 650 AND 749 THEN 'Very Good'
         WHEN CreditScore BETWEEN 750 AND 851 THEN 'Excellent'
         END;
-
- -- Change the data type of "Balance" Column
+        
+-- Change the data type of "Balance" Column
 
         ALTER TABLE churn
         MODIFY COLUMN Balance int;
@@ -163,7 +197,7 @@ ALTER TABLE churn ADD COLUMN Balance_Range VARCHAR(20);
         WHEN Balance BETWEEN 100000 AND 200000 THEN '100k-200k'
         WHEN Balance > 200000 THEN '>200k'
         END;
-        
+
 SELECT * FROM churn;
 
 -- Getting Distinct Geography
@@ -172,3 +206,81 @@ SELECT DISTINCT Geography from churn;
 -- Calculating Total Customers
 SELECT COUNT(CustomerId)  AS Total_Customers FROM churn;
 
+-- Calculating Active Customers
+SELECT COUNT(*) AS ActiveCustomers FROM churn WHERE Activity_Status = 'Active';
+
+-- Calculating Inactive Customers
+SELECT COUNT(*) AS InactiveCustomers FROM churn WHERE Activity_Status = 'Dormant';
+
+select * from churn;
+
+-- Calculating the total number churned customers
+SELECT COUNT(*) AS ChurnedCustomers FROM churn WHERE Churn_Status = 'Churned';
+
+-- Calculating the total number retained customers
+SELECT COUNT(*) AS RetainedCustomers FROM churn WHERE Churn_Status = 'Not_Churned';
+
+-- Calculating the total number of customers who raised complaints
+SELECT COUNT(*) AS ComplainRaised FROM churn WHERE Complain_Status = 'Complain_Raised';
+
+-- Calculating the total number of customers who do not raised complaints
+SELECT COUNT(*) AS NoComplainRaised FROM churn WHERE Complain_Status = 'No_Complain_Raised';
+
+-- What are the different Card Types?
+SELECT DISTINCT Card_Type AS CardType FROM churn;
+
+-- Gender wise Customer Churn Status
+SELECT Gender, Count(Gender) AS ChurnNumber FROM churn WHERE Churn_Status = 'Churned' Group by Gender;
+
+-- Which Age Group customers are more likely to churn?
+SELECT Age_grps, Count(Age_grps) AS AgeGrpsChurnNum FROM churn WHERE Churn_Status = 'Churned' Group by Age_grps;
+
+-- In which Balance Range are customers more prone to churn?
+SELECT Balance_Range, Count(Balance_Range) AS BalanceChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Balance_Range;
+
+-- Which credit type of customers most likely to churn with?
+SELECT Credit_Type, Count(Credit_Type) AS CreditTypeChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Credit_Type ORDER BY CreditTypeChurnNum DESC;
+
+-- Customers with which Card type are more likely to churn?
+SELECT Card_Type, Count(Card_Type) AS CardTypeChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Card_Type ORDER BY CardTypeChurnNum DESC;
+
+-- Are customers who frequently raise complaints more prone to churning?
+SELECT Complain_Status, Count(Complain_Status) AS ComplainStatusChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Complain_Status ORDER BY ComplainStatusChurnNum DESC;
+
+-- Are customers with a Dormant Activity Status more prone to churning?
+SELECT Activity_Status, Count(Activity_Status) AS ActivityStatusChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Activity_Status ORDER BY ActivityStatusChurnNum DESC;
+
+-- Are customers without Credit Cards more prone to churning?
+SELECT AvailabilityOfCard, Count(AvailabilityOfCard) AS AvailCardChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY AvailabilityOfCard ORDER BY AvailCardChurnNum DESC;
+
+-- Do customers who purchase the minimum number of products tend to churn more frequently?
+SELECT NumOfProducts, Count(NumOfProducts) AS NumOfProductsChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY NumOfProducts ORDER BY NumOfProductsChurnNum DESC;
+
+-- Are customers with minimum tenure more likely to churn?
+SELECT Tenure, Count(Tenure) AS TenureChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Tenure ORDER BY TenureChurnNum DESC;
+
+-- Which location's customers experienced higher churn rates?
+SELECT Geography, Count(Geography) AS GeographyChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Geography ORDER BY GeographyChurnNum DESC;
+
+-- Which gender raised more complaints, male or female, and which gender exhibited a higher churn rate?
+SELECT Gender, Count(Gender) AS GenderComplainChurn FROM churn WHERE Complain_Status = 'Complain_Raised' AND Churn_Status = 'Churned' Group By Gender Order by GenderComplainChurn DESC;
+
+-- Geography wise higher churn Status of Gender
+SELECT Geography, Gender, Count(Geography) AS GeographyGenderChurn FROM churn WHERE Churn_Status = 'Churned' Group by Geography Order By GeographyGenderChurn DESC;
+
+-- Which geographical region has a larger customer base?
+SELECT Geography, COUNT(CustomerId) AS TotalCustomers from churn group by Geography order by TotalCustomers;
+
+-- How does a Gender distribution of Churned Customers vary across Geographical ragions?
+SELECT Geography, Gender, Count(*) as ChurnedCount
+FROM churn
+WHERE Churn_Status = 'Churned'
+GROUP BY Geography, Gender
+ORDER BY Geography;
+
+-- What is the Age Distribution of churned Customers in different Geographical regions?
+SELECT Geography, Age_grps, Gender, COUNT(*) as count
+FROM churn
+WHERE Churn_Status = 'Churned'
+GROUP BY Geography,Age_grps, Gender
+ORDER BY Geography,Age_grps, Gender
