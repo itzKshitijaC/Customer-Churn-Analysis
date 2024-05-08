@@ -432,7 +432,26 @@ This project involves conducting an End-to-End Customer Churn Analysis utilizing
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/fab9baee-9a4f-4e38-af8c-a2d66708f9db">
 </div>
 
-40. 
+40. Are customers who frequently raise complaints more prone to churning?
+
+              SELECT Complain_Status, Count(Complain_Status) AS ComplainStatusChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Complain_Status ORDER BY ComplainStatusChurnNum DESC;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/c72adccc-044e-4857-a240-b7261c7f43c5">
+</div>
+
+
+41. Are customers with a Dormant Activity Status more prone to churning?
+
+              SELECT Activity_Status, Count(Activity_Status) AS ActivityStatusChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Activity_Status ORDER BY ActivityStatusChurnNum DESC;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/faf3402d-ee7b-4011-a0b0-6b395c04ff6c">
+</div>
+
+42. 
+
+
 
 
 
