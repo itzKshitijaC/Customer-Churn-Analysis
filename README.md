@@ -389,7 +389,9 @@ To identify the factors contributing to churn.
 
 35. Gender wise Customer Churn Status
 
-              SELECT Gender, Count(Gender) AS ChurnNumber FROM churn WHERE Churn_Status = 'Churned' Group by Gender;
+              SELECT Gender, Count(Gender) AS ChurnNumber
+              FROM churn WHERE Churn_Status = 'Churned'
+              Group by Gender;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/f4624a18-9433-4abc-829a-2db3eff2ac2b">
@@ -397,7 +399,9 @@ To identify the factors contributing to churn.
 
 36. Which Age Group customers are more likely to churn?
 
-              SELECT Age_grps, Count(Age_grps) AS AgeGrpsChurnNum FROM churn WHERE Churn_Status = 'Churned' Group by Age_grps;
+              SELECT Age_grps, Count(Age_grps) AS AgeGrpsChurnNum
+              FROM churn WHERE Churn_Status = 'Churned'
+              Group by Age_grps;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/300d4f6d-aa3c-42c3-88bb-068b3aaec281">
@@ -405,7 +409,9 @@ To identify the factors contributing to churn.
 
 37. In which Balance Range are customers more prone to churn?
 
-              SELECT Balance_Range, Count(Balance_Range) AS BalanceChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Balance_Range;
+              SELECT Balance_Range, Count(Balance_Range) AS BalanceChurnNum
+              FROM churn WHERE Churn_Status = 'Churned'
+              Group BY Balance_Range;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/48b68f98-32cb-4ff2-ad45-2b8fc40e56bd">
@@ -413,7 +419,11 @@ To identify the factors contributing to churn.
 
 38.  Which credit type of customers most likely to churn with?
 
-              SELECT Credit_Type, Count(Credit_Type) AS CreditTypeChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Credit_Type ORDER BY CreditTypeChurnNum DESC;
+              SELECT Credit_Type, Count(Credit_Type) AS CreditTypeChurnNum
+              FROM churn WHERE Churn_Status = 'Churned'
+              Group BY Credit_Type
+              ORDER BY CreditTypeChurnNum
+              DESC;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/40985ed2-5530-4d47-9da7-7f5ba58393df">
@@ -421,7 +431,11 @@ To identify the factors contributing to churn.
 
 39. Customers with which Card type are more likely to churn?
 
-              SELECT Card_Type, Count(Card_Type) AS CardTypeChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Card_Type ORDER BY CardTypeChurnNum DESC;
+              SELECT Card_Type, Count(Card_Type) AS CardTypeChurnNum
+              FROM churn WHERE Churn_Status = 'Churned'
+              Group BY Card_Type
+              ORDER BY CardTypeChurnNum
+              DESC;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/fab9baee-9a4f-4e38-af8c-a2d66708f9db">
@@ -429,7 +443,11 @@ To identify the factors contributing to churn.
 
 40. Are customers who frequently raise complaints more prone to churning?
 
-              SELECT Complain_Status, Count(Complain_Status) AS ComplainStatusChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Complain_Status ORDER BY ComplainStatusChurnNum DESC;
+              SELECT Complain_Status, Count(Complain_Status) AS ComplainStatusChurnNum
+              FROM churn WHERE Churn_Status = 'Churned'
+              Group BY Complain_Status
+              ORDER BY ComplainStatusChurnNum
+              DESC;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/c72adccc-044e-4857-a240-b7261c7f43c5">
@@ -438,7 +456,11 @@ To identify the factors contributing to churn.
 
 41. Are customers with a Dormant Activity Status more prone to churning?
 
-              SELECT Activity_Status, Count(Activity_Status) AS ActivityStatusChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Activity_Status ORDER BY ActivityStatusChurnNum DESC;
+              SELECT Activity_Status, Count(Activity_Status) AS ActivityStatusChurnNum
+              FROM churn WHERE Churn_Status = 'Churned'
+              Group BY Activity_Status
+              ORDER BY ActivityStatusChurnNum
+              DESC;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/faf3402d-ee7b-4011-a0b0-6b395c04ff6c">
@@ -446,7 +468,11 @@ To identify the factors contributing to churn.
 
 42.  Are customers without Credit Cards more prone to churning?
 
-              SELECT AvailabilityOfCard, Count(AvailabilityOfCard) AS AvailCardChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY AvailabilityOfCard ORDER BY AvailCardChurnNum DESC;
+              SELECT AvailabilityOfCard, Count(AvailabilityOfCard) AS AvailCardChurnNum
+              FROM churn WHERE Churn_Status = 'Churned'
+              Group BY AvailabilityOfCard
+              ORDER BY AvailCardChurnNum
+              DESC;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/27cb085e-5ab3-4a35-8e6f-a5e693719530">
@@ -454,7 +480,11 @@ To identify the factors contributing to churn.
 
 43. Do customers who purchase the minimum number of products tend to churn more frequently?
 
-              SELECT NumOfProducts, Count(NumOfProducts) AS NumOfProductsChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY NumOfProducts ORDER BY NumOfProductsChurnNum DESC;
+              SELECT NumOfProducts, Count(NumOfProducts) AS NumOfProductsChurnNum
+              FROM churn WHERE Churn_Status = 'Churned'
+              Group BY NumOfProducts
+              ORDER BY NumOfProductsChurnNum
+              DESC;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/03212357-e33d-4432-a004-bbd180e7b5dd">
@@ -462,7 +492,12 @@ To identify the factors contributing to churn.
 
 44. Are customers with minimum tenure more likely to churn?
 
-              SELECT Tenure, Count(Tenure) AS TenureChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Tenure ORDER BY TenureChurnNum DESC;
+              SELECT Tenure, Count(Tenure) AS TenureChurnNum
+              FROM churn
+              WHERE Churn_Status = 'Churned'
+              Group BY Tenure
+              ORDER BY TenureChurnNum
+              DESC;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/edca3882-fe51-43a9-8a7f-ff6c1b85e462">
@@ -470,7 +505,12 @@ To identify the factors contributing to churn.
 
 45. Which location's customers experienced higher churn rates?
 
-              SELECT Geography, Count(Geography) AS GeographyChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Geography ORDER BY GeographyChurnNum DESC;
+              SELECT Geography,
+              Count(Geography) AS GeographyChurnNum
+              FROM churn WHERE Churn_Status = 'Churned'
+              Group BY Geography
+              ORDER BY GeographyChurnNum
+              DESC;
 
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/d951ae6a-6e5a-4579-bd0a-43de6e33484b">
