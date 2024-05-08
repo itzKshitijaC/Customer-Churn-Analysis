@@ -60,7 +60,8 @@ To identify the factors contributing to churn.
        USE customer_churn;
 
 3. Select the Records from the table
--- After importing dataset into the database, select the records from the table
+
+After importing dataset into the database, select the records from the table
 
        SELECT * FROM churn;
 
@@ -86,7 +87,7 @@ To identify the factors contributing to churn.
 
 6. Drop Columns
    
--- Drop Unnecessary Columns as they are of no use 
+Drop Unnecessary Columns as they are of no use 
 
         ALTER TABLE churn DROP COLUMN RowNumber, DROP COLUMN Surname, DROP COLUMN EstimatedSalary;
 
