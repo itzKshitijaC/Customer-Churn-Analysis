@@ -3,10 +3,10 @@
 # Objective 🎯
 To identify the factors contributing to churn.
 
-# Dataset 🔤🔤
+# Dataset 🔤
 [Download Dataset from here](https://www.kaggle.com/datasets/radheshyamkollipara/bank-customer-churn)
 
-# Data Summary 🔤
+# Data Summary 🔍
 
 ### Our dataset comprises 18 attributes. Let's comprehensively examine each one in detail.
 
