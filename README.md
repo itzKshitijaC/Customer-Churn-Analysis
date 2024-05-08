@@ -497,26 +497,12 @@ This project involves conducting an End-to-End Customer Churn Analysis utilizing
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/cc21dbaf-e58f-42d3-bca7-fc73633338b0">
 </div>
 
-48. 
+48. Which geographical region has a larger customer base?
 
+              SELECT Geography, COUNT(CustomerId) AS TotalCustomers from churn group by Geography order by TotalCustomers;
 
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/9cc344fc-4265-47cb-a4d4-83b76c62d61a">
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+49. 
