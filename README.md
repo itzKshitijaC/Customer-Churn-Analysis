@@ -577,4 +577,6 @@ To identify the factors contributing to churn.
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/3bc74a72-81d7-4680-bdff-c628ee596a64">
 </div>
 
+# Key Findings ✨
 
+- 
