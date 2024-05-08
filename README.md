@@ -336,5 +336,118 @@ This project involves conducting an End-to-End Customer Churn Analysis utilizing
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/47d60c55-8aac-4ed7-962a-fa6279775c49">
 </div>
 
-27. 
+27. Calculating Active Customers
+
+      SELECT COUNT(*) AS ActiveCustomers FROM churn WHERE Activity_Status = 'Active';
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/edc7eb7a-a3e5-458c-8658-6ee89f5f4785">
+</div>
+
+28. Calculating Inactive Customers
+
+              SELECT COUNT(*) AS InactiveCustomers FROM churn WHERE Activity_Status = 'Dormant';
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/f1b6e112-5eb9-4401-866f-bc763112b924">
+</div>
+
+29. Calculating the total number churned customers
+
+              SELECT COUNT(*) AS ChurnedCustomers FROM churn WHERE Churn_Status = 'Churned';
+    
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/efcced1c-12d9-4e94-b650-a12ccc19d64e">
+</div>
+
+31. Calculating the total number retained customers
+
+              SELECT COUNT(*) AS RetainedCustomers FROM churn WHERE Churn_Status = 'Not_Churned';
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/56883bbc-a8da-479c-8d30-6eee06f0555c">
+</div>
+
+32. Calculating the total number of customers who raised complaints
+
+              SELECT COUNT(*) AS ComplainRaised FROM churn WHERE Complain_Status = 'Complain_Raised';
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/dca3fc62-3d50-477b-8dc1-1aedf2a7e26d">
+</div>
+
+33. Calculating the total number of customers who do not raised complaints
+
+              SELECT COUNT(*) AS NoComplainRaised FROM churn WHERE Complain_Status = 'No_Complain_Raised';
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/105369e9-042e-4a7e-adb8-efc19ebc6cc1">
+</div>
+
+34. What are the different Card Types?
+
+              SELECT DISTINCT Card_Type AS CardType FROM churn;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/9b6aab2a-41c1-42c3-8f84-8f9c57dafcdb">
+</div>
+
+35. Gender wise Customer Churn Status
+
+              SELECT Gender, Count(Gender) AS ChurnNumber FROM churn WHERE Churn_Status = 'Churned' Group by Gender;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/f4624a18-9433-4abc-829a-2db3eff2ac2b">
+</div>
+
+36. Which Age Group customers are more likely to churn?
+
+              SELECT Age_grps, Count(Age_grps) AS AgeGrpsChurnNum FROM churn WHERE Churn_Status = 'Churned' Group by Age_grps;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/300d4f6d-aa3c-42c3-88bb-068b3aaec281">
+</div>
+
+37. In which Balance Range are customers more prone to churn?
+
+              SELECT Balance_Range, Count(Balance_Range) AS BalanceChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Balance_Range;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/48b68f98-32cb-4ff2-ad45-2b8fc40e56bd">
+</div>
+
+38.  Which credit type of customers most likely to churn with?
+
+              SELECT Credit_Type, Count(Credit_Type) AS CreditTypeChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Credit_Type ORDER BY CreditTypeChurnNum DESC;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/40985ed2-5530-4d47-9da7-7f5ba58393df">
+</div>
+
+39. Customers with which Card type are more likely to churn?
+
+              SELECT Card_Type, Count(Card_Type) AS CardTypeChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Card_Type ORDER BY CardTypeChurnNum DESC;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/fab9baee-9a4f-4e38-af8c-a2d66708f9db">
+</div>
+
+40. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
