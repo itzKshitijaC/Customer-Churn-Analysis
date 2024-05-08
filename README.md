@@ -1,4 +1,4 @@
-# Dataset Cleaning and Exploratory Analysis on Customer Churn Dataset
+# Cleaning and Performing Exploratory Analysis on Customer Churn Dataset
 
 # Objective 🎯
 To identify the factors contributing to churn.
