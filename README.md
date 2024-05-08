@@ -1,4 +1,4 @@
-# End to end Customer Churn analysis using MySQL 
+# Dataset Cleaning and Exploratory Analysis on Customer Churn Dataset
 
 # Objective 🎯
 To identify the factors contributing to churn.
