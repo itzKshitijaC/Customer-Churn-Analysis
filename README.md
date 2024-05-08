@@ -449,7 +449,57 @@ This project involves conducting an End-to-End Customer Churn Analysis utilizing
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/faf3402d-ee7b-4011-a0b0-6b395c04ff6c">
 </div>
 
-42. 
+42.  Are customers without Credit Cards more prone to churning?
+
+              SELECT AvailabilityOfCard, Count(AvailabilityOfCard) AS AvailCardChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY AvailabilityOfCard ORDER BY AvailCardChurnNum DESC;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/27cb085e-5ab3-4a35-8e6f-a5e693719530">
+</div>
+
+43. Do customers who purchase the minimum number of products tend to churn more frequently?
+
+              SELECT NumOfProducts, Count(NumOfProducts) AS NumOfProductsChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY NumOfProducts ORDER BY NumOfProductsChurnNum DESC;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/03212357-e33d-4432-a004-bbd180e7b5dd">
+</div>
+
+44. Are customers with minimum tenure more likely to churn?
+
+              SELECT Tenure, Count(Tenure) AS TenureChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Tenure ORDER BY TenureChurnNum DESC;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/edca3882-fe51-43a9-8a7f-ff6c1b85e462">
+</div>
+
+45. Which location's customers experienced higher churn rates?
+
+              SELECT Geography, Count(Geography) AS GeographyChurnNum FROM churn WHERE Churn_Status = 'Churned' Group BY Geography ORDER BY GeographyChurnNum DESC;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/d951ae6a-6e5a-4579-bd0a-43de6e33484b">
+</div>
+
+46. Which gender raised more complaints, male or female, and which gender exhibited a higher churn rate?
+
+              SELECT Gender, Count(Gender) AS GenderComplainChurn FROM churn WHERE Complain_Status = 'Complain_Raised' AND Churn_Status = 'Churned' Group By Gender Order by GenderComplainChurn DESC;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/118c38d4-d69e-4de2-9c81-49536756a80b">
+</div>
+
+47. Geography wise churn Status of Gender
+
+              SELECT Geography, Gender, Count(Geography) AS GeographyGenderChurn FROM churn WHERE Churn_Status = 'Churned' Group by Geography Order By GeographyGenderChurn DESC;
+
+<div align="center">
+  <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/cc21dbaf-e58f-42d3-bca7-fc73633338b0">
+</div>
+
+48. 
+
+
 
 
 
