@@ -1,4 +1,4 @@
-# End to end Customer Churn analysis using MySQL and Power BI 📊
+# End to end Customer Churn analysis using MySQL 
 
 # Objective 🎯
 To identify the factors contributing to churn.
@@ -46,13 +46,8 @@ To identify the factors contributing to churn.
 
 <b>18. Points Earned: </b>the points earned by the customer for using credit card.
 
-# Methodology 🚂
-This project involves conducting an End-to-End Customer Churn Analysis utilizing MySQL and Power BI. The churn dataset within the banking domain is cleaned and subjected to basic analysis via MySQL. Subsequently, the refined dataset is exported to Power BI for the creation of an interactive Dashboard.
-
 # Tools Used 🔨
 <b> 1. To Clean and Analyze data: </b> MySQL Workbench
-
-<b> 2. To Create an interactive Dashboard: </b> Power BI
 
 # Data Cleaning and Exploratory Analysis using MySQL 👩🏻‍💻
 
