@@ -581,4 +581,28 @@ Drop Unnecessary Columns as they are of no use
 
 # Key Findings ✨
 
-- 
+- The total number of customers is 10,000.
+
+- Among the total customers, 5,151 are active, while the rest are inactive.
+
+- Out of 10,000 customers, 2,038 churned, constituting a churn rate of 20.38%.
+
+- Customers in the age group 40-59 are more likely to churn, followed by those in the age range 20-39.
+
+- Surprisingly, customers with a balance range of 100k-200k were found to have the highest churn rate.
+
+- Customers with a credit score in the range of 550 – 649, categorized as "Good" credit type, are the most prone to churning, followed by those with "Very Good" and "Excellent" credit types.
+
+- Customers with Diamond card type are more likely to churn, followed by Platinum and Silver.
+
+- Customers with Dormant status are more prone to churning.
+
+- Surprisingly, customers with credit cards contributed the most to the churn rate.
+
+- Customers who purchased the minimum number of products exhibited the highest churn rate.
+
+- Observation suggests that tenure has no correlation with churn rate; even customers with 9 years of tenure contributed exceptionally high to the churn rate.
+
+- The highest churn rate was observed in Germany, followed by France and Spain.
+
+- Female customers raised the most complaints, resulting in a higher churn rate compared to male customers.
