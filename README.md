@@ -1,4 +1,4 @@
-# Cleaning and Performing Exploratory Analysis on Customer Churn Dataset
+# Cleaning | Exploratory Analysis | Report building
 
 # Objective 🎯
 To identify the factors contributing to churn.
@@ -578,6 +578,8 @@ Drop Unnecessary Columns as they are of no use
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/3bc74a72-81d7-4680-bdff-c628ee596a64">
 </div>
+
+# Report Building using PowerBI
 
 # Key Findings ✨
 
