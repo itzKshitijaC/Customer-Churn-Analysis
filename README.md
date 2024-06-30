@@ -106,8 +106,5 @@ The steps involved in Data Pre Processing are:
 
 <b>1. Handling Missing Values: </b> Based on the number of missing values, we can choose different strategies to deal with them.
 
-<b>Data Validation: </b> We need to check the data types of each column and make sure they are compatible with our business understanding.
-
-
-
+<b>2. Data Validation: </b> We need to check the data types of each column and make sure they are compatible with our business understanding.
 
