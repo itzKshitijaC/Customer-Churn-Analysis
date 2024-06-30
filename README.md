@@ -46,6 +46,7 @@ Here's a glimpse of the final report.
 
 # Data Gathering 🔠
 Please use the following data assets to pull the data related to Bank customers and associated details.
+
 o	ActiveCustomer 
 
 o	Bank_Churn
