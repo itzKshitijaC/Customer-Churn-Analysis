@@ -9,6 +9,7 @@
 # Table of Contents 🔍
 - [Demo-Preview](#Demo-Preview)
 - [Business Case](#Business-Case)
+- [Data Source](#Data-Source)
 - [Data Summary](#Data-Summary)
 - [Exploratory Data Analysis](#Exploratory-Data-Analysis)
 - [Dashboarding](#Dashboarding)
@@ -42,6 +43,9 @@ Here's a glimpse of the final report.
 1. A comprehensive understanding of churn drivers
 2. A predictive model with high accuracy in identifying at-risk customers.
 3. It tailored retention strategies that effectively reduce churn rates.
+
+# Data Source 🔠
+[Download Dataset from Kaggle](https://www.kaggle.com/datasets/radheshyamkollipara/bank-customer-churn)
 
 # Data Summary 🔠
 
@@ -95,3 +99,5 @@ Exited—whether or not the customer left the bank.
 • 1 represents Exit
 
 </b>14. Bank DOJ — </b> date when the Customer associated/joined  with the bank.
+
+# Exploratory Data Analysis 📌
