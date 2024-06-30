@@ -11,6 +11,7 @@
 - [Business Case](#Business-Case)
 - [Data Source](#Data-Source)
 - [Data Summary](#Data-Summary)
+- [Exploratory Analysis](#Exploratory-Analysis)
 - [Dashboarding](#Dashboarding)
 - [Conclusion](#Conclusion)
 
@@ -99,4 +100,4 @@ Exited—whether or not the customer left the bank.
 
 </b>14. Bank DOJ — </b> date when the Customer associated/joined  with the bank.
 
-# 
+# Exploratory Analysis 🔍
