@@ -44,8 +44,21 @@ Here's a glimpse of the final report.
 2. A predictive model with high accuracy in identifying at-risk customers.
 3. It tailored retention strategies that effectively reduce churn rates.
 
-# Data Source 🔠
-[Download Dataset from Kaggle](https://www.kaggle.com/datasets/radheshyamkollipara/bank-customer-churn)
+# Data Gathering 🔠
+Please use the following data assets to pull the data related to Bank customers and associated details.
+o	ActiveCustomer 
+
+o	Bank_Churn
+
+o	CreditCard
+
+o	CustomerInfo
+
+o	ExitCustomer
+
+o	Gender
+
+o	Geography
 
 # Data Summary 🔠
 
