@@ -67,29 +67,29 @@ Here's a glimpse of the final report.
 
 </b>6. Gender—</b> It’s interesting to explore whether gender plays a role in a customer leaving the bank.
 
-</b>Age—</b> This is certainly relevant since older customers are less likely to leave their bank than younger ones.
+</b>7. Age—</b> This is certainly relevant since older customers are less likely to leave their bank than younger ones.
 
-</b>Tenure—</b> refers to the number of years that the customer has been a client of the bank. Normally, older clients are more loyal and less likely to leave a bank.
+</b>8. Tenure—</b> refers to the number of years that the customer has been a client of the bank. Normally, older clients are more loyal and less likely to leave a bank.
 
-</b>Balance—</b> is also a very good indicator of customer churn, as people with a higher balance in their accounts are less likely to leave the bank compared to those with lower balances.
+</b>9. Balance—</b> is also a very good indicator of customer churn, as people with a higher balance in their accounts are less likely to leave the bank compared to those with lower balances.
 
-<b>NumOfProducts—</b>refers to the number of products that a customer has purchased through the bank. 
+<b>10. NumOfProducts—</b>refers to the number of products that a customer has purchased through the bank. 
 
-<b>HasCrCard—</b> denotes whether or not a customer has a credit card. This column is also relevant since people with credit card are less likely to leave the bank.
+<b>11. HasCrCard—</b> denotes whether or not a customer has a credit card. This column is also relevant since people with credit card are less likely to leave the bank.
 
 •	1 represents credit card holder
 
 •	0 represents non credit card holder
 
-<b>IsActiveMember—</b> Active customers are less likely to leave the bank.
+<b>12. IsActiveMember—</b> Active customers are less likely to leave the bank.
 •	1 represents Active Member
 
 •	0 represents Inactive Member
 
-<b>Estimated Salary—</b> As with balance, people with lower salaries are more likely to leave the bank compared to those with higher salaries.
+<b>13. Estimated Salary—</b> As with balance, people with lower salaries are more likely to leave the bank compared to those with higher salaries.
 Exited—whether or not the customer left the bank.
 • 0 represents Retain 
 
 • 1 represents Exit
 
-</b>Bank DOJ — </b> date when the Customer associated/joined  with the bank.
+</b>14. Bank DOJ — </b> date when the Customer associated/joined  with the bank.
