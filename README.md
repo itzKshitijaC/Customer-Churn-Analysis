@@ -4,12 +4,13 @@
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/332c5e0d-6500-477a-8398-1503488681de" alt="Description" width="900" height="500">
 </div>
 
-## The purpose of this project is to provide an end-to-end Business Analysis Solution to minimize Customer Attrition in a Banking Sector
+## The purpose of this project is to provide an end-to-end Business Analysis Solution to minimize Customer Attrition in the Banking Sector
 
 # Table of Contents 🔍
 - [Demo-Preview](#Demo-Preview)
 - [Business Case](#Business-Case)
-- [Data Summary and Exploratory Analysis](#Data-Summary-and-Exploratory-Analysis)
+- [Data Summary](#Data-Summary)
+- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
 - [Dashboarding](#Dashboarding)
 - [Conclusion](#Conclusion)
 
@@ -37,18 +38,58 @@ Here's a glimpse of the final report.
 3. Improved Customer Experience: Insights from churn analysis can enhance customer service and product offerings.
 4. Revenue Growth: Retaining customers longer increases lifetime value, boosting revenue.
 
-<b>4. Methodology: </b>
-
-1. Data Collection: Gather historical data on customer demographics, transactions, interactions, and feedback.
-2. Analysis: Use statistical and machine learning models to identify churn predictors.
-3. Prediction: Develop a churn prediction model to identify at-risk customers.
-4. Intervention: Design personalized interventions for at-risk customers to prevent churn.
-
-<b>5. Expected Outcomes: </b>
+<b>4. Expected Outcomes: </b>
 1. A comprehensive understanding of churn drivers
 2. A predictive model with high accuracy in identifying at-risk customers.
 3. It tailored retention strategies that effectively reduce churn rates.
 
+# Data Summary 🔠
 
+<b>1. RowNumber—</b> corresponds to the record (row) number and does not affect the output.
 
+<b>2. CustomerId—</b> contains random values and does not affect customers leaving the bank.
 
+</b>3. Surname—</b>a customer's surname has no impact on their decision to leave the bank.
+
+</b>4. CreditScore—</b>can affect customer churn since a customer with a higher credit score is less likely to leave the bank.
+<b>Credit score: </b>
+•	Excellent: 800–850
+
+•	Very Good: 740–799
+
+•	Good: 670–739
+
+•	Fair: 580–669
+
+•	Poor: 300–579
+
+</b>5. Geography—</b> A customer’s location can affect their decision to leave the bank.
+
+</b>6. Gender—</b> It’s interesting to explore whether gender plays a role in a customer leaving the bank.
+
+</b>Age—</b> This is certainly relevant since older customers are less likely to leave their bank than younger ones.
+
+</b>Tenure—</b> refers to the number of years that the customer has been a client of the bank. Normally, older clients are more loyal and less likely to leave a bank.
+
+</b>Balance—</b> is also a very good indicator of customer churn, as people with a higher balance in their accounts are less likely to leave the bank compared to those with lower balances.
+
+<b>NumOfProducts—</b>refers to the number of products that a customer has purchased through the bank. 
+
+<b>HasCrCard—</b> denotes whether or not a customer has a credit card. This column is also relevant since people with credit card are less likely to leave the bank.
+
+•	1 represents credit card holder
+
+•	0 represents non credit card holder
+
+<b>IsActiveMember—</b> Active customers are less likely to leave the bank.
+•	1 represents Active Member
+
+•	0 represents Inactive Member
+
+<b>Estimated Salary—</b> As with balance, people with lower salaries are more likely to leave the bank compared to those with higher salaries.
+Exited—whether or not the customer left the bank.
+• 0 represents Retain 
+
+• 1 represents Exit
+
+</b>Bank DOJ — </b> date when the Customer associated/joined  with the bank.
