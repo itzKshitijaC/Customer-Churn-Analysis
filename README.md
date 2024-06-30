@@ -10,3 +10,9 @@
 Here's a glimpse of the final report.
 
 # Table of Contents 🔍
+- [Demo-Preview](#Demo-Preview)
+- [Installation](#Background)
+- [Business Case](#Business-Case)
+- [Data Summary and Exploratory Analysis](#Data-Summary-and-Exploratory-Analysis)
+- [Dashboarding](#Dashboarding)
+- [Conclusion](#Conclusion)
