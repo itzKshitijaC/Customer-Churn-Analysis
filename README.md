@@ -11,7 +11,6 @@
 - [Business Case](#Business-Case)
 - [Data Source](#Data-Source)
 - [Data Summary](#Data-Summary)
-- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
 - [Dashboarding](#Dashboarding)
 - [Conclusion](#Conclusion)
 
@@ -100,11 +99,4 @@ Exited—whether or not the customer left the bank.
 
 </b>14. Bank DOJ — </b> date when the Customer associated/joined  with the bank.
 
-# Exploratory Data Analysis 📌
-Once the data source is connected we have to perform these cleaning and transformation steps in Power Query Editor.
-The steps involved in Data Pre Processing are:
-
-<b>1. Handling Missing Values: </b> Based on the number of missing values, we can choose different strategies to deal with them.
-
-<b>2. Data Validation: </b> We need to check the data types of each column and make sure they are compatible with our business understanding.
-
+# 
