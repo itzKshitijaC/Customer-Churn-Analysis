@@ -12,6 +12,7 @@
 - [Data Source](#Data-Source)
 - [Data Summary](#Data-Summary)
 - [Exploratory Analysis](#Exploratory-Analysis)
+- [DAX](#DAX)
 - [Dashboarding](#Dashboarding)
 - [Conclusion](#Conclusion)
 
@@ -67,7 +68,7 @@ o	Geography
 
 <b>2. CustomerId—</b> contains random values and does not affect customers leaving the bank.
 
-</b>3. Surname—</b>a customer's surname has no impact on their decision to leave the bank.
+</b>3. Surname—</b> A customer's surname has no impact on their decision to leave the bank.
 
 </b>4. CreditScore—</b>can affect customer churn since a customer with a higher credit score is less likely to leave the bank.
 <b>Credit score: </b>
@@ -87,11 +88,11 @@ o	Geography
 
 </b>7. Age—</b> This is certainly relevant since older customers are less likely to leave their bank than younger ones.
 
-</b>8. Tenure—</b> refers to the number of years that the customer has been a client of the bank. Normally, older clients are more loyal and less likely to leave a bank.
+</b>8. Tenure—</b> refers to the number of years that the customer has been a bank client. Normally, older clients are more loyal and less likely to leave a bank.
 
-</b>9. Balance—</b> is also a very good indicator of customer churn, as people with a higher balance in their accounts are less likely to leave the bank compared to those with lower balances.
+</b>9. Balance—</b> is also a very good indicator of customer churn, as people with a higher balance in their accounts are less likely to leave the bank than those with lower balances.
 
-<b>10. NumOfProducts—</b>refers to the number of products that a customer has purchased through the bank. 
+<b>10. NumOfProducts—</b>refers to the number of products a customer purchases through the bank. 
 
 <b>11. HasCrCard—</b> denotes whether or not a customer has a credit card. This column is also relevant since people with credit cards are less likely to leave the bank.
 
@@ -114,4 +115,14 @@ Exited—whether or not the customer left the bank.
 
 </b>14. Bank DOJ — </b> date when the Customer associated/joined  with the bank.
 
-# Exploratory Analysis 🔍
+# Data Analysis Expressions (DAX) ⚡
+
+1. DateMaster Table
+
+        Datemaster = CALENDAR(FIRSTDATE(Bank_Churn[Bank DOJ]),LASTDATE(Bank_Churn[Bank DOJ]))
+
+2. Create a Year column from "DateMaster" table
+
+        year = YEAR(Datemaster[Date])
+
+3. 
