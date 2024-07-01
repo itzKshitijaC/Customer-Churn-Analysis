@@ -121,8 +121,16 @@ Exited—whether or not the customer left the bank.
 
         Datemaster = CALENDAR(FIRSTDATE(Bank_Churn[Bank DOJ]),LASTDATE(Bank_Churn[Bank DOJ]))
 
-2. Create a Year column from "DateMaster" table
+2. Create a Year column from the "DateMaster" table
 
         year = YEAR(Datemaster[Date])
 
-3. 
+3. Create a Month column from the "DateMaster" table
+
+        Month = MONTH(Datemaster[Date])
+
+4. Create a Month Name column from the "DateMaster" table
+
+        Month Name = FORMAT(Datemaster[Date], "MMM")
+
+5. 
