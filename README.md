@@ -139,4 +139,8 @@ Data Modelling is creating a relationship between the tables i.e. fact tables an
 
         Month Name = FORMAT(Datemaster[Date], "MMM")
 
-5. 
+5. Create a measure to calculate active customers
+
+        Active Customers = CALCULATE(COUNT(Bank_Churn[CustomerId]), ActiveCustomer[ActiveCategory]="Active Member")
+
+6. 
