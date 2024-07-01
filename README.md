@@ -115,6 +115,12 @@ Exited—whether or not the customer left the bank.
 
 </b>14. Bank DOJ — </b> date when the Customer associated/joined  with the bank.
 
+# Data Modelling 🔍
+Data Modelling is creating a relationship between the tables i.e. fact tables and Dimension tables. 
+
+![Screenshot 2024-07-01 215558](https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/70a0ea5c-043a-4f1f-b51e-695a5cff7534)
+
+
 # Data Analysis Expressions (DAX) ⚡
 
 1. DateMaster Table
