@@ -151,4 +151,20 @@ Data Modelling is creating a relationship between the tables i.e. fact tables an
 
         Inactive Customers = [Total Customers]-[Active Customers]
 
-8. 
+8. Create a measure to calculate the number of Credit Card holders
+
+        Credit Card Holders = CALCULATE(COUNT(Bank_Churn[CustomerId]),CreditCard[Category]="credit card holder")
+
+9. Create a measure to calculate the number of Non-Credit Card holders
+
+        Non Credit Card Holders = CALCULATE(COUNT(Bank_Churn[CustomerId]),CreditCard[Category]="non credit card holder")
+
+10. Create a measure to calculate the number of Exit customers
+
+        Exit Customers = CALCULATE([Total Customers], ExitCustomer[ExitCategory]="Exit")
+
+11. Create a measure to calculate the number of Retain Customers
+
+        Retain Customers = CALCULATE([Total Customers], ExitCustomer[ExitCategory]="Retain")
+
+12. 
