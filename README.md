@@ -143,4 +143,12 @@ Data Modelling is creating a relationship between the tables i.e. fact tables an
 
         Active Customers = CALCULATE(COUNT(Bank_Churn[CustomerId]), ActiveCustomer[ActiveCategory]="Active Member")
 
-6. 
+6. Create a measure to calculate total customers
+
+        Total Customers = CALCULATE(COUNT(Bank_Churn[CustomerId]))
+
+7. Create a measure to calculate inactive customers
+
+        Inactive Customers = [Total Customers]-[Active Customers]
+
+8. 
