@@ -167,4 +167,16 @@ Data Modelling is creating a relationship between the tables i.e. fact tables an
 
         Retain Customers = CALCULATE([Total Customers], ExitCustomer[ExitCategory]="Retain")
 
-12. 
+12. Define the Credit type based on the Credit score
+
+        credit type = SWITCH(true(), Bank_Churn[CreditScore]>=800 && Bank_Churn[CreditScore]<=850, "Excellent",
+        Bank_Churn[CreditScore]>=740 && Bank_Churn[CreditScore]<=799, "very good", 
+        Bank_Churn[CreditScore]>=670 && Bank_Churn[CreditScore]<=739, "good",
+        Bank_Churn[CreditScore]>=580 && Bank_Churn[CreditScore]<=669, "Fair",
+        Bank_Churn[CreditScore]>=300 && Bank_Churn[CreditScore]<=579, "Poor")
+
+13. Formula to calculate the Previous month's exit customers
+
+        previous month exit customers = CALCULATE([Exit Customers], PREVIOUSMONTH(Datemaster[Date]))
+
+14. 
