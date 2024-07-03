@@ -6,7 +6,7 @@ The purpose of this project is to provide an end-to-end Business Analysis Soluti
 # Demo Preview 📈
 Here's a glimpse of the final report.
 
-<img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/a2cb69c2-e7b4-418d-a1ef-a8db0e0889a2" width="900" height="600" />
+<img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/a2cb69c2-e7b4-418d-a1ef-a8db0e0889a2" width="700" height="500" />
 
 # Business Case 💼
 
