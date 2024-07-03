@@ -3,6 +3,24 @@
 # Objective 🎯
 To identify the factors contributing to churn.
 
+## The purpose of this project is to provide an end-to-end Business Analysis Solution to minimize Customer Attrition in the Banking Sector
+
+# Table of Contents 🔍
+- [Demo-Preview](#Demo-Preview)
+- [Business Case](#Business-Case)
+- [Data Source](#Data-Source)
+- [Data Summary](#Data-Summary)
+- [Data Modelling](#Data-Modelling)
+- [DAX](#DAX)
+- [Row Level Security](#Row-level-security)
+- [Dashboarding](#Dashboarding)
+- [Conclusion](#Conclusion)
+
+# Demo Preview 📈
+Here's a glimpse of the final report.
+
+<img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/a2cb69c2-e7b4-418d-a1ef-a8db0e0889a2" width="900" height="600" />
+
 # Dataset 🔤
 [Download Dataset from here](https://www.kaggle.com/datasets/radheshyamkollipara/bank-customer-churn)
 
