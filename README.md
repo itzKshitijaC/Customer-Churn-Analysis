@@ -1,71 +1,183 @@
-# Cleaning and performing Exploratory Analysis on Customer Churn Dataset
+# Cleaning and performing Exploratory Analysis on the Customer Churn Dataset | Dashboarding 📊
 
 # Objective 🎯
-To identify the factors contributing to churn.
-
-## The purpose of this project is to provide an end-to-end Business Analysis Solution to minimize Customer Attrition in the Banking Sector
-
-# Table of Contents 🔍
-- [Demo-Preview](#Demo-Preview)
-- [Business Case](#Business-Case)
-- [Data Source](#Data-Source)
-- [Data Summary](#Data-Summary)
-- [Data Modelling](#Data-Modelling)
-- [DAX](#DAX)
-- [Row Level Security](#Row-level-security)
-- [Dashboarding](#Dashboarding)
-- [Conclusion](#Conclusion)
+The purpose of this project is to provide an end-to-end Business Analysis Solution to minimize Customer Attrition in the Banking Sector
 
 # Demo Preview 📈
 Here's a glimpse of the final report.
 
 <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/a2cb69c2-e7b4-418d-a1ef-a8db0e0889a2" width="900" height="600" />
 
-# Dataset 🔤
-[Download Dataset from here](https://www.kaggle.com/datasets/radheshyamkollipara/bank-customer-churn)
+# Business Case 💼
 
-# Data Summary 🔍
+### Business Case for Customer Churn Analysis in Banking
 
-### Our dataset comprises 18 attributes. Let's comprehensively examine each one in detail.
+<b>1. Introduction: </b>
+1. In the highly competitive banking industry, retaining customers is crucial for long-term success. Customer churn analysis helps identify patterns and reasons why customers leave, enabling proactive measures to 
+   improve retention.
 
-<b>1. RowNumber: </b> corresponds to the record (row) number and has no effect on the output.
+<b>2. Objectives: </b>
 
-<b>2. CustomerId: </b>contains random values and has no effect on customer leaving the bank.
+1. Identify factors contributing to customer churn.
+2. Predict customers at high risk of leaving.
+3. Develop strategies to reduce churn and improve customer loyalty.
 
-<b>3. Surname: </b>the surname of a customer has no impact on their decision to leave the bank.
+<b>3. Benefits: </b>
 
-<b>4. CreditScore: </b>can have an effect on customer churn, since a customer with a higher credit score is less likely to leave the bank.
+1. Increased Retention: By understanding why customers leave, banks can implement targeted retention strategies, reducing churn rates.
+2. Cost Savings: Acquiring new customers is more expensive than retaining existing ones. Reducing churn leads to significant cost savings.
+3. Improved Customer Experience: Insights from churn analysis can enhance customer service and product offerings.
+4. Revenue Growth: Retaining customers longer increases lifetime value, boosting revenue.
 
-<b>5. Geography: </b>a customer’s location can affect their decision to leave the bank.
+<b>4. Expected Outcomes: </b>
+1. A comprehensive understanding of churn drivers
+2. A predictive model with high accuracy in identifying at-risk customers.
+3. It tailored retention strategies that effectively reduce churn rates.
 
-<b>6. Gender: </b>it’s interesting to explore whether gender plays a role in a customer leaving the bank.
+# Data Gathering 🔠
+Please pull the data related to Bank customers and associated details using the following data assets.
 
-<b>7. Age: </b>this is certainly relevant, since older customers are less likely to leave their bank than younger ones.
+o	ActiveCustomer 
 
-<b>8. Tenure: </b>refers to the number of years that the customer has been a client of the bank. Normally, older clients are more loyal and less likely to leave a bank.
+o	Bank_Churn
 
-<b>9. Balance: </b>also a very good indicator of customer churn, as people with a higher balance in their accounts are less likely to leave the bank compared to those with lower balances.
+o	CreditCard
 
-<b>10. NumOfProducts: </b>refers to the number of products that a customer has purchased through the bank.
+o	CustomerInfo
 
-<b>11. HasCrCard: </b>denotes whether or not a customer has a credit card. This column is also relevant, since people with a credit card are less likely to leave the bank.
+o	ExitCustomer
 
-<b>12. IsActiveMember: </b>active customers are less likely to leave the bank.
+o	Gender
 
-<b>13. EstimatedSalary: </b>as with balance, people with lower salaries are more likely to leave the bank compared to those with higher salaries.
+o	Geography
 
-<b>14. Exited: </b>whether or not the customer left the bank.
+# Data Summary 🔠
 
-<b>15. Complain: </b>customer has complaint or not.
+<b>1. RowNumber—</b> corresponds to the record (row) number and does not affect the output.
 
-<b>16. Satisfaction Score: </b>Score provided by the customer for their complaint resolution.
+<b>2. CustomerId—</b> contains random values and does not affect customers leaving the bank.
 
-<b>17. Card Type: </b>type of card hold by the customer.
+</b>3. Surname—</b> A customer's surname has no impact on their decision to leave the bank.
 
-<b>18. Points Earned: </b>the points earned by the customer for using credit card.
+</b>4. CreditScore—</b>can affect customer churn since a customer with a higher credit score is less likely to leave the bank.
+<b>Credit score: </b>
+•	Excellent: 800–850
+
+•	Very Good: 740–799
+
+•	Good: 670–739
+
+•	Fair: 580–669
+
+•	Poor: 300–579
+
+</b>5. Geography—</b> A customer’s location can affect their decision to leave the bank.
+
+</b>6. Gender—</b> It’s interesting to explore whether gender plays a role in a customer leaving the bank.
+
+</b>7. Age—</b> This is certainly relevant since older customers are less likely to leave their bank than younger ones.
+
+</b>8. Tenure—</b> refers to the number of years that the customer has been a bank client. Normally, older clients are more loyal and less likely to leave a bank.
+
+</b>9. Balance—</b> is also a very good indicator of customer churn, as people with a higher balance in their accounts are less likely to leave the bank than those with lower balances.
+
+<b>10. NumOfProducts—</b>refers to the number of products a customer purchases through the bank. 
+
+<b>11. HasCrCard—</b> denotes whether or not a customer has a credit card. This column is also relevant since people with credit cards are less likely to leave the bank.
+
+•	1 represents credit card holder
+
+•	0 represents non credit card holder
+
+<b>12. IsActiveMember—</b> Active customers are less likely to leave the bank.
+
+•	1 represents Active Member
+
+•	0 represents Inactive Member
+
+<b>13. Estimated Salary—</b> As with balance, people with lower salaries are more likely to leave the bank compared to those with higher salaries.
+Exited—whether or not the customer left the bank.
+
+• 0 represents Retain 
+
+• 1 represents Exit
+
+</b>14. Bank DOJ — </b> date when the Customer associated/joined  with the bank.
+
+# Data Modelling 🔍
+Data Modelling is creating a relationship between the tables i.e. fact tables and Dimension tables. 
+
+![Screenshot 2024-07-01 215558](https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/70a0ea5c-043a-4f1f-b51e-695a5cff7534)
+
+# Data Analysis Expressions (DAX) ⚡
+
+1. DateMaster Table
+
+        Datemaster = CALENDAR(FIRSTDATE(Bank_Churn[Bank DOJ]),LASTDATE(Bank_Churn[Bank DOJ]))
+
+2. Create a Year column from the "DateMaster" table
+
+        year = YEAR(Datemaster[Date])
+
+3. Create a Month column from the "DateMaster" table
+
+        Month = MONTH(Datemaster[Date])
+
+4. Create a Month Name column from the "DateMaster" table
+
+        Month Name = FORMAT(Datemaster[Date], "MMM")
+
+5. Create a measure to calculate active customers
+
+        Active Customers = CALCULATE(COUNT(Bank_Churn[CustomerId]), ActiveCustomer[ActiveCategory]="Active Member")
+
+6. Create a measure to calculate total customers
+
+        Total Customers = CALCULATE(COUNT(Bank_Churn[CustomerId]))
+
+7. Create a measure to calculate inactive customers
+
+        Inactive Customers = [Total Customers]-[Active Customers]
+
+8. Create a measure to calculate the number of Credit Card holders
+
+        Credit Card Holders = CALCULATE(COUNT(Bank_Churn[CustomerId]),CreditCard[Category]="credit card holder")
+
+9. Create a measure to calculate the number of Non-Credit Card holders
+
+        Non Credit Card Holders = CALCULATE(COUNT(Bank_Churn[CustomerId]),CreditCard[Category]="non credit card holder")
+
+10. Create a measure to calculate the number of Exit customers
+
+        Exit Customers = CALCULATE([Total Customers], ExitCustomer[ExitCategory]="Exit")
+
+11. Create a measure to calculate the number of Retain Customers
+
+        Retain Customers = CALCULATE([Total Customers], ExitCustomer[ExitCategory]="Retain")
+
+12. Define the Credit type based on the Credit score
+
+        credit type = SWITCH(true(), Bank_Churn[CreditScore]>=800 && Bank_Churn[CreditScore]<=850, "Excellent",
+        Bank_Churn[CreditScore]>=740 && Bank_Churn[CreditScore]<=799, "very good", 
+        Bank_Churn[CreditScore]>=670 && Bank_Churn[CreditScore]<=739, "good",
+        Bank_Churn[CreditScore]>=580 && Bank_Churn[CreditScore]<=669, "Fair",
+        Bank_Churn[CreditScore]>=300 && Bank_Churn[CreditScore]<=579, "Poor")
+
+13. Formula to calculate the Previous month's exit customers
+
+        previous month exit customers = CALCULATE([Exit Customers], PREVIOUSMONTH(Datemaster[Date]))
+
+14. Calculate Churn Percentage
+
+        Churn % = 
+        var EC = [Exit Customers]
+        var TC = [Total Customers]
+        var churnper = DIVIDE(EC, TC)
+        return churnper
 
 # Tools Used 🔨
 <b> 1. To Clean and Analyze data: </b> MySQL Workbench
+<b> 2. Dashboarding: </b> Microsoft Power BI
 
 # Data Cleaning and Exploratory Analysis using MySQL 👩🏻‍💻
 
@@ -596,6 +708,21 @@ Drop Unnecessary Columns as they are of no use
 <div align="center">
   <img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/3bc74a72-81d7-4680-bdff-c628ee596a64">
 </div>
+
+# Dashboarding 📊
+
+![screenshot](https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/0704db9e-1437-42ae-b79b-bcb822921ec7)
+
+# Row Level Security 🗺️
+
+Row-level security (RLS) is a feature in database management and business intelligence systems that allows you to control access to rows in a table based on certain conditions. This means that different users can see different subsets of data within the same table based on their permissions.
+
+Benefits:
+1. Data Security: Ensures users only access data relevant to their region.
+2. Simplified Analysis: Users focus on data pertinent to their area, enhancing analysis efficiency.
+
+For a Customer Churn Analysis Power BI project focusing on three countries—Spain, Germany, and France—Row-Level Security (RLS) can be implemented to ensure that users from each country only see data relevant to their specific region.
+
 
 # Key Findings ✨
 
