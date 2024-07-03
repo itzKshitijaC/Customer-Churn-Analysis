@@ -6,7 +6,7 @@ The purpose of this project is to provide an end-to-end Business Analysis Soluti
 # Demo Preview 📈
 Here's a glimpse of the final report.
 
-<img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/a2cb69c2-e7b4-418d-a1ef-a8db0e0889a2" width="700" height="500" />
+<img src="https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/f221e2b6-6403-4776-bea8-35bb8cef2110" width="800" height="500" />
 
 # Business Case 💼
 
@@ -711,7 +711,7 @@ Drop Unnecessary Columns as they are of no use
 
 # Dashboarding 📊
 
-![screenshot](https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/0704db9e-1437-42ae-b79b-bcb822921ec7)
+![screenshot](https://github.com/itzKshitijaC/Customer-Churn-Analysis/assets/168798073/1026e847-a315-4bb7-b4fa-940bcf6f09f2)
 
 # Row Level Security 🗺️
 
